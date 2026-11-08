@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Riyadul Fatah | Roti Bakar </title>
+    <title>Riyadul Fatah | Roti Bakar</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,10 +16,10 @@
     <style>
         /* === PALET WARNA === */
         :root {
-            --bg-cream: #FFFBF4;       /* Krem lembut */
+            --bg-cream: #FFFBF4;       
             --bg-white: #FFFFFF;
-            --primary-green: #1E3A2F;  /* Hijau tua dari logo */
-            --accent-gold: #C59B4D;    /* Emas dari logo */
+            --primary-green: #1E3A2F;  
+            --accent-gold: #C59B4D;    
             --text-dark: #332D2B;
             --text-muted: #78716C;
             --shadow-soft: 0 10px 30px rgba(30, 58, 47, 0.08);
@@ -69,7 +69,7 @@
             background: var(--primary-green); color: white !important;
             padding: 10px 25px; border-radius: 50px;
             box-shadow: 0 4px 15px rgba(30, 58, 47, 0.3);
-            transition: transform 0.3s;
+            transition: transform 0.3s, background 0.3s;
         }
         .nav-cta:hover { transform: translateY(-3px); background: var(--accent-gold); }
 
@@ -94,6 +94,9 @@
         .btn-primary:hover { background: transparent; color: var(--accent-gold); }
         .btn-secondary { background: transparent; color: var(--primary-green); border: 2px solid rgba(30, 58, 47, 0.2); }
         .btn-secondary:hover { border-color: var(--primary-green); background: var(--primary-green); color: white; }
+        
+        .btn-gofood { background: #00880A; color: white; border: 2px solid #00880A; } /* Warna hijau khas GoFood */
+        .btn-gofood:hover { background: transparent; color: #00880A; }
 
         .hero-image { position: relative; display: flex; justify-content: center; }
         .hero-image img {
@@ -128,7 +131,6 @@
             display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;
         }
 
-        /* Tampilan list menu yang rapi */
         .menu-item {
             background: var(--bg-cream); padding: 20px 25px;
             border-radius: 15px; display: flex; justify-content: space-between; align-items: center;
@@ -184,24 +186,26 @@
         <a href="#" class="logo-container">
             <!-- PASTIKAN GAMBAR LOGO BERNAMA logo.png -->
             <img src="logo.jpeg" alt="logo">
-            <div class="logo-text">Riyadul Fatah<span>Roti Bakar & Florist</span></div>
+            <div class="logo-text">Riyadul Fatah<span>Roti Bakar</span></div>
         </a>
         <div class="nav-links">
             <a href="#tentang">Tentang</a>
             <a href="#menu">Menu</a>
             <a href="#lokasi">Lokasi</a>
-            <a href="https://wa.me/6281234567890" target="_blank" class="nav-cta">Pesan Sekarang</a>
+            <!-- Tombol Navbar diarahkan ke GoFood -->
+            <a href="https://gofood.link/a/UEgKn7L" target="_blank" class="nav-cta">Pesan Sekarang</a>
         </div>
     </nav>
 
     <!-- HERO SECTION -->
     <section class="hero" id="home">
         <div class="hero-text">
-            <h1>Hangatnya <span>Roti Bakar</span> & Indahnya Rangkaian Bunga</h1>
-            <p class="hero-subtitle">Maniskan momen, lengkapi cerita. Nikmati aneka roti bakar dengan topping melimpah di K7 Angkringan Palembang, atau pesan rangkaian bunga cantik untuk orang tersayang.</p>
+            <h1>Hangatnya <span>Roti Bakar</span> Khas Riyadul Fatah</h1>
+            <p class="hero-subtitle">Maniskan momen, lengkapi cerita. Nikmati aneka roti bakar dengan topping melimpah dan mentega premium di K7 Angkringan Palembang. Dibuat fresh, disajikan hangat!</p>
             <div class="hero-buttons">
-                <a href="#menu" class="btn btn-primary"><i class="fas fa-utensils"></i> Lihat Menu Roti</a>
-                <a href="https://instagram.com/riyadlulfata_florist" target="_blank" class="btn btn-secondary"><i class="fab fa-instagram"></i> Lihat Florist</a>
+                <!-- Tombol GoFood dan Lihat Menu -->
+                <a href="https://gofood.link/a/UEgKn7L" target="_blank" class="btn btn-gofood"><i class="fas fa-motorcycle"></i> Pesan via GoFood</a>
+                <a href="#menu" class="btn btn-secondary"><i class="fas fa-utensils"></i> Lihat Menu</a>
             </div>
         </div>
         <div class="hero-image">
@@ -334,7 +338,7 @@
     <!-- INFO & LOKASI -->
     <section class="section-container" id="lokasi">
         <h2 class="section-title">Kunjungi Kami</h2>
-        <p class="section-subtitle">Kami tunggu kedatanganmu untuk menikmati hangatnya roti bakar atau memilih bunga cantik.</p>
+        <p class="section-subtitle">Kami tunggu kedatanganmu untuk menikmati hangatnya roti bakar khas Riyadul Fatah.</p>
         
         <div class="info-grid">
             <div class="info-card">
@@ -356,13 +360,17 @@
             </div>
 
             <div class="info-card">
-                <h3><i class="fab fa-instagram" style="color: var(--accent-gold); margin-right: 10px;"></i> Media Sosial</h3>
-                <p style="color: var(--text-muted); margin-bottom: 20px;">Ikuti keseruan dan update terbaru dari kami, atau pesan rangkaian bunga melalui Instagram.</p>
-                <a href="https://instagram.com/riyadlulfata_florist" target="_blank" class="btn btn-primary" style="width: 100%; justify-content: center;">
-                    <i class="fab fa-instagram"></i> @riyadlulfata_florist
+                <h3><i class="fas fa-motorcycle" style="color: var(--accent-gold); margin-right: 10px;"></i> Pemesanan & Sosial Media</h3>
+                <p style="color: var(--text-muted); margin-bottom: 20px;">Pesan langsung ke rumahmu lewat GoFood, atau ikuti update terbaru kami di Instagram.</p>
+                
+                <!-- Tombol GoFood Warna Hijau -->
+                <a href="https://gofood.link/a/UEgKn7L" target="_blank" class="btn btn-gofood" style="width: 100%; justify-content: center; margin-bottom: 15px;">
+                    <i class="fas fa-motorcycle"></i> Pesan via GoFood
                 </a>
-                <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-secondary" style="width: 100%; justify-content: center; margin-top: 15px;">
-                    <i class="fab fa-whatsapp"></i> Pesan via WhatsApp
+                
+                <!-- Tombol Instagram -->
+                <a href="https://instagram.com/rotibakarrf" target="_blank" class="btn btn-secondary" style="width: 100%; justify-content: center;">
+                    <i class="fab fa-instagram"></i> @rotibakarrf
                 </a>
             </div>
         </div>
@@ -371,10 +379,11 @@
     <!-- FOOTER -->
     <footer>
         <div class="footer-socials">
-            <a href="https://instagram.com/riyadlulfata_florist" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://wa.me/6281234567890" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <!-- Ikon GoFood di Footer -->
+            <a href="https://gofood.link/a/UEgKn7L" target="_blank" title="Pesan via GoFood"><i class="fas fa-motorcycle"></i></a>
+            <a href="https://instagram.com/rotibakarrf" target="_blank"><i class="fab fa-instagram"></i></a>
         </div>
-        <p>&copy; 2026 Roti Bakar & Florist Riyadul Fatah.</p>
+        <p>&copy; 2026 Roti Bakar Riyadul Fatah. Dibuat dengan ❤️ oleh Parel.</p>
     </footer>
 
 </body>
