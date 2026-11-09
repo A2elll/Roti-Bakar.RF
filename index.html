@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Riyadul Fatah | Roti Bakar</title>
     
+    <!-- ========================================== -->
+    <!-- 🔒 SECURITY HEADERS (Tameng Keamanan Website) -->
+    <!-- ========================================== -->
+    <!-- Mencegah eksekusi script jahat dari luar (XSS) -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' https: data:; script-src 'self' 'unsafe-inline';">
+    <!-- Mencegah website ini ditampilkan di dalam iframe website lain (Clickjacking) -->
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <!-- Mencegah browser menebak-nebak tipe file yang bisa berbahaya -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -98,16 +109,43 @@
         .btn-gofood { background: #00880A; color: white; border: 2px solid #00880A; } /* Warna hijau khas GoFood */
         .btn-gofood:hover { background: transparent; color: #00880A; }
 
-        .hero-image { position: relative; display: flex; justify-content: center; }
-        .hero-image img {
-            width: 100%; max-width: 450px; border-radius: 50%;
-            box-shadow: 0 30px 60px rgba(30, 58, 47, 0.15);
-            object-fit: cover; aspect-ratio: 1/1; border: 8px solid white; z-index: 2;
+        /* === GAMBAR HERO (DIPERBARUI UNTUK POSTER) === */
+        .hero-image { 
+            position: relative; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center;
         }
+        
+        .hero-image img {
+            width: 100%; 
+            max-width: 380px; 
+            height: auto;
+            /* Mengubah dari lingkaran (50%) menjadi kotak melengkung agar poster terlihat pas */
+            border-radius: 20px; 
+            box-shadow: 0 20px 40px rgba(30, 58, 47, 0.2);
+            object-fit: cover; 
+            border: 8px solid white; 
+            z-index: 2;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.02) rotate(1deg);
+        }
+
         .hero-image::before {
-            content: ''; position: absolute; width: 80%; height: 80%;
-            background: var(--accent-gold); border-radius: 50%;
-            top: 10%; right: 0; z-index: 1; filter: blur(50px); opacity: 0.3;
+            content: ''; 
+            position: absolute; 
+            width: 80%; 
+            height: 80%;
+            background: var(--accent-gold); 
+            border-radius: 30px;
+            top: 10%; 
+            right: 10%; 
+            z-index: 1; 
+            filter: blur(50px); 
+            opacity: 0.4;
         }
 
         /* === SECTION UMUM === */
@@ -172,7 +210,7 @@
             .hero, .info-grid { grid-template-columns: 1fr; text-align: center; padding-top: 100px; }
             .hero-text h1 { font-size: 2.8rem; }
             .hero-buttons { justify-content: center; }
-            .hero-image img { max-width: 80%; margin-top: 30px; }
+            .hero-image { margin-top: 40px; }
             .nav-links { display: none; }
             nav { justify-content: center; }
             .menu-item { flex-direction: column; text-align: center; gap: 10px; }
@@ -184,8 +222,7 @@
     <!-- NAVBAR -->
     <nav>
         <a href="#" class="logo-container">
-            <!-- PASTIKAN GAMBAR LOGO BERNAMA logo.png -->
-            <img src="logo.jpeg" alt="logo">
+            <img src="logo.jpeg" alt="Logo Riyadul Fatah">
             <div class="logo-text">Riyadul Fatah<span>Roti Bakar</span></div>
         </a>
         <div class="nav-links">
@@ -193,7 +230,7 @@
             <a href="#menu">Menu</a>
             <a href="#lokasi">Lokasi</a>
             <!-- Tombol Navbar diarahkan ke GoFood -->
-            <a href="https://gofood.link/a/UEgKn7L" target="_blank" class="nav-cta">Pesan Sekarang</a>
+            <a href="https://gofood.link/a/UEgKn7L" target="_blank" rel="noopener noreferrer" class="nav-cta">Pesan Sekarang</a>
         </div>
     </nav>
 
@@ -203,14 +240,16 @@
             <h1>Hangatnya <span>Roti Bakar</span> Khas Riyadul Fatah</h1>
             <p class="hero-subtitle">Maniskan momen, lengkapi cerita. Nikmati aneka roti bakar dengan topping melimpah dan mentega premium di K7 Angkringan Palembang. Dibuat fresh, disajikan hangat!</p>
             <div class="hero-buttons">
-                <!-- Tombol GoFood dan Lihat Menu -->
-                <a href="https://gofood.link/a/UEgKn7L" target="_blank" class="btn btn-gofood"><i class="fas fa-motorcycle"></i> Pesan via GoFood</a>
+                <!-- Tombol GoFood (Smart Link otomatis buka aplikasi Gojek di HP) -->
+                <a href="https://gofood.link/a/UEgKn7L" target="_blank" rel="noopener noreferrer" class="btn btn-gofood">
+                    <i class="fab fa-google-play"></i> Pesan via GoFood
+                </a>
                 <a href="#menu" class="btn btn-secondary"><i class="fas fa-utensils"></i> Lihat Menu</a>
             </div>
         </div>
         <div class="hero-image">
-            <!-- GANTI GAMBAR INI DENGAN FOTO ROTI BAKAR ASLI -->
-            <img src="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?q=80&w=1000&auto=format&fit=crop" alt="Roti Bakar Hangat">
+            <!-- GAMBAR POSTER BARU (Pastikan nama filenya poster-roti.jpg) -->
+            <img src="poster-roti.jpg" alt="Poster Roti Bakar Asli Dibakar">
         </div>
     </section>
 
@@ -361,15 +400,15 @@
 
             <div class="info-card">
                 <h3><i class="fas fa-motorcycle" style="color: var(--accent-gold); margin-right: 10px;"></i> Pemesanan & Sosial Media</h3>
-                <p style="color: var(--text-muted); margin-bottom: 20px;">Pesan langsung ke rumahmu lewat GoFood, atau ikuti update terbaru kami di Instagram.</p>
+                <p style="color: var(--text-muted); margin-bottom: 20px;">Pesan langsung ke rumahmu lewat aplikasi Gojek (GoFood), atau ikuti update terbaru kami di Instagram.</p>
                 
-                <!-- Tombol GoFood Warna Hijau -->
-                <a href="https://gofood.link/a/UEgKn7L" target="_blank" class="btn btn-gofood" style="width: 100%; justify-content: center; margin-bottom: 15px;">
-                    <i class="fas fa-motorcycle"></i> Pesan via GoFood
+                <!-- Tombol GoFood -->
+                <a href="https://gofood.link/a/UEgKn7L" target="_blank" rel="noopener noreferrer" class="btn btn-gofood" style="width: 100%; justify-content: center; margin-bottom: 15px;">
+                    <i class="fab fa-google-play"></i> Pesan via GoFood
                 </a>
                 
                 <!-- Tombol Instagram -->
-                <a href="https://instagram.com/rotibakarrf" target="_blank" class="btn btn-secondary" style="width: 100%; justify-content: center;">
+                <a href="https://instagram.com/rotibakarrf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="width: 100%; justify-content: center;">
                     <i class="fab fa-instagram"></i> @rotibakarrf
                 </a>
             </div>
@@ -380,8 +419,8 @@
     <footer>
         <div class="footer-socials">
             <!-- Ikon GoFood di Footer -->
-            <a href="https://gofood.link/a/UEgKn7L" target="_blank" title="Pesan via GoFood"><i class="fas fa-motorcycle"></i></a>
-            <a href="https://instagram.com/rotibakarrf" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://gofood.link/a/UEgKn7L" target="_blank" rel="noopener noreferrer" title="Pesan via GoFood"><i class="fas fa-motorcycle"></i></a>
+            <a href="https://instagram.com/rotibakarrf" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
         </div>
         <p>&copy; 2026 Roti Bakar Riyadul Fatah. Dibuat dengan ❤️ oleh Parel.</p>
     </footer>
