@@ -8,11 +8,8 @@
     <!-- ========================================== -->
     <!-- 🔒 SECURITY HEADERS (Tameng Keamanan Website) -->
     <!-- ========================================== -->
-    <!-- Mencegah eksekusi script jahat dari luar (XSS) -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' https: data:; script-src 'self' 'unsafe-inline';">
-    <!-- Mencegah website ini ditampilkan di dalam iframe website lain (Clickjacking) -->
     <meta http-equiv="X-Frame-Options" content="DENY">
-    <!-- Mencegah browser menebak-nebak tipe file yang bisa berbahaya -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
 
@@ -106,8 +103,11 @@
         .btn-secondary { background: transparent; color: var(--primary-green); border: 2px solid rgba(30, 58, 47, 0.2); }
         .btn-secondary:hover { border-color: var(--primary-green); background: var(--primary-green); color: white; }
         
-        .btn-gofood { background: #00880A; color: white; border: 2px solid #00880A; } /* Warna hijau khas GoFood */
+        .btn-gofood { background: #00880A; color: white; border: 2px solid #00880A; }
         .btn-gofood:hover { background: transparent; color: #00880A; }
+        
+        .btn-gojek { background: #007A4D; color: white; border: 2px solid #007A4D; } /* Warna hijau Gojek */
+        .btn-gojek:hover { background: transparent; color: #007A4D; }
 
         /* === GAMBAR HERO (DIPERBARUI UNTUK POSTER) === */
         .hero-image { 
@@ -121,7 +121,6 @@
             width: 100%; 
             max-width: 380px; 
             height: auto;
-            /* Mengubah dari lingkaran (50%) menjadi kotak melengkung agar poster terlihat pas */
             border-radius: 20px; 
             box-shadow: 0 20px 40px rgba(30, 58, 47, 0.2);
             object-fit: cover; 
@@ -240,11 +239,14 @@
             <h1>Hangatnya <span>Roti Bakar</span> Khas Riyadul Fatah</h1>
             <p class="hero-subtitle">Maniskan momen, lengkapi cerita. Nikmati aneka roti bakar dengan topping melimpah dan mentega premium di K7 Angkringan Palembang. Dibuat fresh, disajikan hangat!</p>
             <div class="hero-buttons">
-                <!-- Tombol GoFood (Smart Link otomatis buka aplikasi Gojek di HP) -->
+                <!-- Tombol Pemesanan GoFood (Link Asli) -->
                 <a href="https://gofood.link/a/UEgKn7L" target="_blank" rel="noopener noreferrer" class="btn btn-gofood">
-                    <i class="fab fa-google-play"></i> Pesan via GoFood
+                    <i class="fas fa-motorcycle"></i> Pesan via GoFood
                 </a>
-                <a href="#menu" class="btn btn-secondary"><i class="fas fa-utensils"></i> Lihat Menu</a>
+                <!-- Tombol Tambahan: Buka/Download Aplikasi Gojek -->
+                <a href="https://play.google.com/store/apps/details?id=com.gojek.app" target="_blank" rel="noopener noreferrer" class="btn btn-gojek">
+                    <i class="fab fa-google-play"></i> Buka Aplikasi Gojek
+                </a>
             </div>
         </div>
         <div class="hero-image">
@@ -402,9 +404,14 @@
                 <h3><i class="fas fa-motorcycle" style="color: var(--accent-gold); margin-right: 10px;"></i> Pemesanan & Sosial Media</h3>
                 <p style="color: var(--text-muted); margin-bottom: 20px;">Pesan langsung ke rumahmu lewat aplikasi Gojek (GoFood), atau ikuti update terbaru kami di Instagram.</p>
                 
-                <!-- Tombol GoFood -->
-                <a href="https://gofood.link/a/UEgKn7L" target="_blank" rel="noopener noreferrer" class="btn btn-gofood" style="width: 100%; justify-content: center; margin-bottom: 15px;">
-                    <i class="fab fa-google-play"></i> Pesan via GoFood
+                <!-- Tombol Pemesanan GoFood -->
+                <a href="https://gofood.link/a/UEgKn7L" target="_blank" rel="noopener noreferrer" class="btn btn-gofood" style="width: 100%; justify-content: center; margin-bottom: 10px;">
+                    <i class="fas fa-motorcycle"></i> Pesan via GoFood
+                </a>
+
+                <!-- Tombol Buka Aplikasi Gojek (Tambahan) -->
+                <a href="https://play.google.com/store/apps/details?id=com.gojek.app" target="_blank" rel="noopener noreferrer" class="btn btn-gojek" style="width: 100%; justify-content: center; margin-bottom: 10px;">
+                    <i class="fab fa-google-play"></i> Buka / Download Gojek
                 </a>
                 
                 <!-- Tombol Instagram -->
