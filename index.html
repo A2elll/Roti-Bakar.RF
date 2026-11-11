@@ -8,7 +8,7 @@
     <!-- ========================================== -->
     <!-- 🔒 SECURITY HEADERS (Tameng Keamanan Website) -->
     <!-- ========================================== -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' https: data:; script-src 'self' 'unsafe-inline';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' https: data:; script-src 'self' 'unsafe-inline'; media-src 'self' https:;">
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
@@ -98,53 +98,52 @@
             padding: 14px 32px; border-radius: 50px; font-weight: 600;
             display: inline-flex; align-items: center; gap: 10px; transition: all 0.3s;
         }
-        .btn-primary { background: var(--accent-gold); color: white; border: 2px solid var(--accent-gold); }
-        .btn-primary:hover { background: transparent; color: var(--accent-gold); }
-        .btn-secondary { background: transparent; color: var(--primary-green); border: 2px solid rgba(30, 58, 47, 0.2); }
-        .btn-secondary:hover { border-color: var(--primary-green); background: var(--primary-green); color: white; }
-        
         .btn-gofood { background: #00880A; color: white; border: 2px solid #00880A; }
         .btn-gofood:hover { background: transparent; color: #00880A; }
         
-        .btn-gojek { background: #007A4D; color: white; border: 2px solid #007A4D; } /* Warna hijau Gojek */
+        .btn-gojek { background: #007A4D; color: white; border: 2px solid #007A4D; } 
         .btn-gojek:hover { background: transparent; color: #007A4D; }
 
-        /* === GAMBAR HERO (DIPERBARUI UNTUK POSTER) === */
+        /* === VIDEO LOGO HERO SECTION (IMPLEMENTASI BARU) === */
         .hero-image { 
             position: relative; 
             display: flex; 
             justify-content: center; 
             align-items: center;
+            /* Memberikan ruang agar animasi tidak menabrak teks */
+            padding: 20px; 
         }
         
-        .hero-image img {
+        .hero-video {
             width: 100%; 
-            max-width: 380px; 
+            max-width: 500px; /* Ukuran proporsional */
             height: auto;
-            border-radius: 20px; 
-            box-shadow: 0 20px 40px rgba(30, 58, 47, 0.2);
-            object-fit: cover; 
-            border: 8px solid white; 
             z-index: 2;
-            transition: transform 0.3s ease;
+            /* TRIK UTAMA: Menghilangkan background krem/putih pada video agar menyatu dengan web */
+            mix-blend-mode: multiply; 
+            /* Animasi masuk yang halus */
+            animation: fadeInScale 1.2s ease-out forwards;
         }
 
-        .hero-image img:hover {
-            transform: scale(1.02) rotate(1deg);
+        /* Animasi Fade In Scale */
+        @keyframes fadeInScale {
+            0% { opacity: 0; transform: scale(0.95); }
+            100% { opacity: 1; transform: scale(1); }
         }
 
+        /* Efek Cahaya Emas di Belakang Video */
         .hero-image::before {
             content: ''; 
             position: absolute; 
             width: 80%; 
             height: 80%;
             background: var(--accent-gold); 
-            border-radius: 30px;
+            border-radius: 50%;
             top: 10%; 
             right: 10%; 
             z-index: 1; 
-            filter: blur(50px); 
-            opacity: 0.4;
+            filter: blur(60px); 
+            opacity: 0.25; /* Dibuat lebih lembut */
         }
 
         /* === SECTION UMUM === */
@@ -206,10 +205,11 @@
 
         /* === RESPONSIVE (MOBILE) === */
         @media (max-width: 968px) {
-            .hero, .info-grid { grid-template-columns: 1fr; text-align: center; padding-top: 100px; }
+            .hero, .info-grid { grid-template-columns: 1fr; text-align: center; padding-top: 100px; gap: 30px;}
             .hero-text h1 { font-size: 2.8rem; }
             .hero-buttons { justify-content: center; }
-            .hero-image { margin-top: 40px; }
+            .hero-image { margin-top: 20px; }
+            .hero-video { max-width: 85%; } /* Video menyesuaikan ukuran HP */
             .nav-links { display: none; }
             nav { justify-content: center; }
             .menu-item { flex-direction: column; text-align: center; gap: 10px; }
@@ -228,7 +228,6 @@
             <a href="#tentang">Tentang</a>
             <a href="#menu">Menu</a>
             <a href="#lokasi">Lokasi</a>
-            <!-- Tombol Navbar diarahkan ke GoFood -->
             <a href="https://gofood.link/a/UEgKn7L" target="_blank" rel="noopener noreferrer" class="nav-cta">Pesan Sekarang</a>
         </div>
     </nav>
@@ -239,19 +238,27 @@
             <h1>Hangatnya <span>Roti Bakar</span> Khas RF</h1>
             <p class="hero-subtitle">Maniskan momen, lengkapi cerita. Nikmati aneka roti bakar dengan topping melimpah dan mentega premium di K7 Angkringan Palembang. Dibuat fresh, disajikan hangat!</p>
             <div class="hero-buttons">
-                <!-- Tombol Pemesanan GoFood (Link Asli) -->
                 <a href="https://gofood.link/a/UEgKn7L" target="_blank" rel="noopener noreferrer" class="btn btn-gofood">
                     <i class="fas fa-motorcycle"></i> Pesan via GoFood
                 </a>
-                <!-- Tombol Tambahan: Buka/Download Aplikasi Gojek -->
                 <a href="https://play.google.com/store/apps/details?id=com.gojek.app" target="_blank" rel="noopener noreferrer" class="btn btn-gojek">
                     <i class="fab fa-google-play"></i> Buka Aplikasi Gojek
                 </a>
             </div>
         </div>
+        
+        <!-- INTEGRASI VIDEO LOGO -->
         <div class="hero-image">
-            <!-- GAMBAR POSTER  -->
-            <img src="poster-roti.jpeg" alt="Poster Roti Bakar Asli Dibakar">
+            <!-- 
+                 Pastikan nama file video sesuai (contoh: logo-video.mp4)
+                 Atribut poster berfungsi sebagai fallback gambar jika video gagal dimuat
+            -->
+            <video class="hero-video" autoplay loop muted playsinline poster="poster-roti.jpeg">
+                <source src="logo-video.mp4" type="video/mp4">
+                <!-- Teks ini muncul jika browser sangat jadul dan tidak mendukung video -->
+                Browser Anda tidak mendukung pemutaran video. 
+                <img src="poster-roti.jpeg" alt="Poster Roti Bakar">
+            </video>
         </div>
     </section>
 
@@ -404,17 +411,14 @@
                 <h3><i class="fas fa-motorcycle" style="color: var(--accent-gold); margin-right: 10px;"></i> Pemesanan & Sosial Media</h3>
                 <p style="color: var(--text-muted); margin-bottom: 20px;">Pesan langsung ke rumahmu lewat aplikasi Gojek (GoFood), atau ikuti update terbaru kami di Instagram.</p>
                 
-                <!-- Tombol Pemesanan GoFood -->
                 <a href="https://gofood.link/a/UEgKn7L" target="_blank" rel="noopener noreferrer" class="btn btn-gofood" style="width: 100%; justify-content: center; margin-bottom: 10px;">
                     <i class="fas fa-motorcycle"></i> Pesan via GoFood
                 </a>
 
-                <!-- Tombol Buka Aplikasi Gojek (Tambahan) -->
                 <a href="https://play.google.com/store/apps/details?id=com.gojek.app" target="_blank" rel="noopener noreferrer" class="btn btn-gojek" style="width: 100%; justify-content: center; margin-bottom: 10px;">
                     <i class="fab fa-google-play"></i> Buka / Download Gojek
                 </a>
                 
-                <!-- Tombol Instagram -->
                 <a href="https://instagram.com/rotibakarrf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="width: 100%; justify-content: center;">
                     <i class="fab fa-instagram"></i> @rotibakarrf
                 </a>
@@ -425,7 +429,6 @@
     <!-- FOOTER -->
     <footer>
         <div class="footer-socials">
-            <!-- Ikon GoFood di Footer -->
             <a href="https://gofood.link/a/UEgKn7L" target="_blank" rel="noopener noreferrer" title="Pesan via GoFood"><i class="fas fa-motorcycle"></i></a>
             <a href="https://instagram.com/rotibakarrf" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
         </div>
